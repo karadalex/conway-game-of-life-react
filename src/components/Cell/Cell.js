@@ -9,10 +9,10 @@ class Cell extends Component {
     this.state = {
       isAliveClassName: ""
     }
-    this.changeCellState = this.changeCellState.bind(this);
+    this.onClickCell = this.onClickCell.bind(this);
   }
 
-  changeCellState() {
+  onClickCell() {
     if (this.props.wasAlive) {
       this.setState({
         isAliveClassName: ""
@@ -28,8 +28,8 @@ class Cell extends Component {
 
   render() {
     return (
-      <div className={"Cell " + this.state.isAliveClassName} 
-        onClick={this.changeCellState}>
+      <div className={"Cell is-alive " + this.props.wasAlive.toString()} 
+        onClick={this.onClickCell}>
       </div>
     );
   }

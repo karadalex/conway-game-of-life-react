@@ -5,6 +5,6 @@
     display: inline-block;
 }
 
-.is-alive {
+.is-alive.true {
     background-color: black;
 }
