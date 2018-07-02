@@ -13,9 +13,13 @@ class Cell extends Component {
 
   changeCellState() {
     if (this.state.wasAlive) {
-      this.state.isAliveClassName = "";
+      this.setState({
+        isAliveClassName: ""
+      })
     } else {
-      this.state.isAliveClassName = "is-alive";
+      this.setState({
+        isAliveClassName: "is-alive"
+      })
     }
     this.setState({
       wasAlive: !this.state.wasAlive
