@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Control.css';
 import { connect } from 'react-redux';
-import { goToPreviousState, goToNextState} from '../../actions';
+import { goToPreviousState, goToNextState, clearGrid} from '../../actions';
 
 class Control extends Component {
   constructor() {
@@ -25,7 +25,7 @@ class Control extends Component {
   }
 
   onClickClear() {
-    // TODO
+    this.props.dispatch(clearGrid());
   }
 
   render() {

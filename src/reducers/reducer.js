@@ -2,7 +2,8 @@
 import {
   CHANGE_CELL_STATE,
   GO_TO_PREVIOUS_STATE,
-  GO_TO_NEXT_STATE
+  GO_TO_NEXT_STATE,
+  CLEAR_GRID
 } from '../actions';
 import { calculateNextState } from './next-state';
 
@@ -11,7 +12,7 @@ import { calculateNextState } from './next-state';
 // false: cell is dead
 // true: cell is alive
 const initialState = {
-  grid: new Array(50).fill(new Array(100).fill(false))
+  grid: new Array(10).fill(new Array(20).fill(false))
 }
 
 export function reducer(state = initialState, action) {
@@ -27,6 +28,10 @@ export function reducer(state = initialState, action) {
     case GO_TO_NEXT_STATE:
       return {
         grid: calculateNextState(state.grid)
+      }
+    case CLEAR_GRID:
+      return {
+        ...initialState
       }
     default:
       return state;
