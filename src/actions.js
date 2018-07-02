@@ -1,7 +1,25 @@
+// Available action types
+export const CHANGE_CELL_STATE = "CHANGE_CELL_STATE";
+export const GO_TO_PREVIOUS_STATE = "GO_TO_PREVIOUS_STATE";
+export const GO_TO_NEXT_STATE = "GO_TO_NEXT_STATE";
+
+// Action creators
 export function changeCellState(x, y) {
   return {
-    type: "CHANGE_CELL_STATE",
+    type: CHANGE_CELL_STATE,
     x,
     y
+  }
+}
+
+export function goToPreviousState() {
+  return {
+    type: GO_TO_PREVIOUS_STATE
+  }
+}
+
+export function goToNextState() {
+  return {
+    type: GO_TO_NEXT_STATE
   }
 }
