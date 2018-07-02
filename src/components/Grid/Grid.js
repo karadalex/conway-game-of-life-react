@@ -14,10 +14,14 @@ class Grid extends Component {
   render() {
     return (
       <div className="Grid">
-        {this.state.grid.map(row => (
-          <div className="row">
-            {row.map(cell => (
-              <Cell/>
+        {this.state.grid.map((row, rowIndex) => (
+          <div className="row" key={rowIndex}>
+            {row.map((cell, colIndex) => (
+              <Cell 
+                key={colIndex} 
+                x={colIndex}
+                y={rowIndex}
+              />
             ))}
           </div>  
         ))}

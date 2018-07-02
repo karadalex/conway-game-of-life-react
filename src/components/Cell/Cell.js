@@ -24,6 +24,7 @@ class Cell extends Component {
     this.setState({
       wasAlive: !this.state.wasAlive
     });
+    console.log(`(${this.props.x}, ${this.props.y}) was clicked`);
   }
 
   render() {
