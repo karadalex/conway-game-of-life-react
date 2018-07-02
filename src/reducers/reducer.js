@@ -11,8 +11,12 @@ import { calculateNextState } from './next-state';
 // Initialize 50x100 empty grid
 // false: cell is dead
 // true: cell is alive
+var initialGrid = new Array(10);
+for (let i = 0; i < initialGrid.length; i++) {
+  initialGrid[i] = new Array(30).fill(false);
+}
 const initialState = {
-  grid: new Array(10).fill(new Array(20).fill(false))
+  grid: initialGrid
 }
 
 export function reducer(state = initialState, action) {
