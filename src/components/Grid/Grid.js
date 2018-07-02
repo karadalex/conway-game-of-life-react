@@ -11,7 +11,7 @@ class Grid extends Component {
           <div className="row" key={rowIndex}>
             {row.map((cell, colIndex) => (
               <Cell 
-                key={colIndex} 
+                key={`(${colIndex}, ${rowIndex})`} 
                 x={colIndex}
                 y={rowIndex}
                 wasAlive={this.props.grid[rowIndex][colIndex]}
