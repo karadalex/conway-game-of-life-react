@@ -1,7 +1,7 @@
 export function clearGrid() {
-  var grid = new Array(10);
+  var grid = new Array(50);
   for (let i = 0; i < grid.length; i++) {
-    grid[i] = new Array(30).fill(false);
+    grid[i] = new Array(100).fill(false);
   }
   return {
     grid
