@@ -6,18 +6,13 @@ import {
   CLEAR_GRID
 } from '../actions';
 import { calculateNextState } from './next-state';
+import { clearGrid } from './clear-grid';
 
 
 // Initialize 50x100 empty grid
 // false: cell is dead
 // true: cell is alive
-var initialGrid = new Array(10);
-for (let i = 0; i < initialGrid.length; i++) {
-  initialGrid[i] = new Array(30).fill(false);
-}
-const initialState = {
-  grid: initialGrid
-}
+const initialState = clearGrid();
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
@@ -34,9 +29,7 @@ export function reducer(state = initialState, action) {
         grid: calculateNextState(state.grid)
       }
     case CLEAR_GRID:
-      return {
-        ...initialState
-      }
+      return clearGrid();
     default:
       return state;
   }
