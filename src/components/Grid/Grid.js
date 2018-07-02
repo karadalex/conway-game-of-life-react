@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
 import './Grid.css';
 import Cell from '../Cell/Cell';
+import { connect } from 'react-redux';
 
 class Grid extends Component {
-  constructor() {
-    super();
-    var grid = new Array(50).fill(new Array(100).fill(0));
-    this.state = {
-      grid
-    };
-  }
-
   render() {
     return (
       <div className="Grid">
-        {this.state.grid.map((row, rowIndex) => (
+        {this.props.grid.map((row, rowIndex) => (
           <div className="row" key={rowIndex}>
             {row.map((cell, colIndex) => (
               <Cell 
                 key={colIndex} 
                 x={colIndex}
                 y={rowIndex}
+                wasAlive={this.props.grid[rowIndex][colIndex]}
               />
             ))}
           </div>  
@@ -30,4 +24,10 @@ class Grid extends Component {
   }
 }
 
-export default Grid;
+function mapStateToProps(state) {
+  return {
+    grid: state.grid
+  };
+}
+
+export default connect(mapStateToProps)(Grid);

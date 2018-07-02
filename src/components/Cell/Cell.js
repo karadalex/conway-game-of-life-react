@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import './Cell.css';
+import { changeCellState } from '../../actions';
+import { connect } from 'react-redux';
 
 class Cell extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      isAliveClassName: "",
-      wasAlive: false,
+      isAliveClassName: ""
     }
     this.changeCellState = this.changeCellState.bind(this);
   }
 
   changeCellState() {
-    if (this.state.wasAlive) {
+    if (this.props.wasAlive) {
       this.setState({
         isAliveClassName: ""
       })
@@ -21,9 +22,7 @@ class Cell extends Component {
         isAliveClassName: "is-alive"
       })
     }
-    this.setState({
-      wasAlive: !this.state.wasAlive
-    });
+    this.props.dispatch(changeCellState(this.props.x, this.props.y));
     console.log(`(${this.props.x}, ${this.props.y}) was clicked`);
   }
 
@@ -36,4 +35,4 @@ class Cell extends Component {
   }
 }
 
-export default Cell;
+export default connect()(Cell);
