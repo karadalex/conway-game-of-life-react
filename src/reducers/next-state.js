@@ -39,6 +39,5 @@ export function calculateNextState(grid) {
       if (!grid[i][j] && (neighbors === 3)) nextStateGrid[i][j] = true;
     }
   }
-  console.log(nextStateGrid);
   return nextStateGrid;
 }
